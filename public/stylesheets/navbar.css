@@ -1,0 +1,19 @@
+.navbar {
+  min-height: 90px;
+  background-color: #330033;
+}
+
+.navbar .navbar-brand {
+  padding-top: 5px;
+}
+
+.navbar .navbar-brand img {
+  height: 80px;
+  width: 80px;
+}
+
+.navbar-text {
+  padding-top: 5px;
+  color: #ffcc33 !important;
+  text-align: center;
+}
