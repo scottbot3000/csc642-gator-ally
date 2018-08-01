@@ -1,31 +1,41 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <%- include ../partials/stylesheets.ejs %>
-  </head>
-  <body>
-    
-    <%- include ../partials/navbar.ejs %>
-    <%- include ../partials/scripts.ejs %>
+	<head>
+		<%- include ../partials/stylesheets.ejs %>
+	</head>
+	<style type="text/css">
+		/*For testing purposes only*/
+		.navbar{
+       		margin-bottom: 0 !important;
+    	}
 
-<div class="container">
-  <div class="row">
-header
-  </div>
-  <div class="row">
-    <div class="col-sm-4 bg-warning">
-search results
-    </div>
-    <div class="col-sm-8 bg-danger">
-      <div class="row">
-        class details
-      </div>
-      <div class="row">
-        schedule
-      </div>
-    </div>
-  </div>
-</div>
+    	.container-fluid {
+    		margin: 0 !important;
+    		padding: 0 !important;
+    	}
 
-</body>
+
+	</style>
+	<body>
+		<!-- Navbar -->
+		<%- include ../partials/navbar.ejs %>
+		<!-- Header -->
+		<%- include ../partials/header.ejs %>
+		<div class="container-fluid" style="border: dotted;">
+			<div class="row">
+				<div class="col-sm-4 bg-warning">
+					search results
+				</div>
+				<div class="col-sm-8 bg-danger">
+					<div class="row">
+						class details
+					</div>
+					<div class="row">
+						schedule
+					</div>
+				</div>
+			</div>
+		</div>
+		<%- include ../partials/scripts.ejs %>
+	</body>
 </html>
