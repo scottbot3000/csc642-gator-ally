@@ -1,0 +1,29 @@
+DROP TABLE Classes;
+
+CREATE TYPE term AS ENUM ('Summer 2018', 'Fall 2018');
+CREATE TYPE session AS ENUM ('Academic Regular Session');
+CREATE TYPE department AS ENUM ('Math', 'Physics', 'Biology', 'Computer Science', 'General Education');
+CREATE TYPE days AS ENUM ('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'MoWe', 'TuTh', 'MoWeFr');
+CREATE TYPE availability AS ENUM ('Available', 'Waitlisted', 'Closed');
+
+CREATE TABLE Classes (
+    ClassNumber         int,
+    Term                term,
+    Session             session,
+    Department          department,
+    CourseNumber        int,
+    CourseSection       int,
+    CourseName          varchar(255),
+    Days                days,
+    StartTime           varchar(255),
+    EndTime             varchar(255),
+    Professor           varchar(255),
+    Prerequisites       varchar(255),
+    CourseMaterials     varchar(255),
+    CourseDescription   varchar(255)
+);
+
+-- INSERT INTO Classes VALUES(DEFAULT, 'guest', '', '', 'guest', ARRAY[]::int[]);
+
+SELECT * FROM Classes;
+

@@ -6,32 +6,28 @@
 	<style type="text/css">
 		/*For testing purposes only*/
 		.navbar{
-       		margin-bottom: 0 !important;
-    	}
-
-    	.container-fluid {
-    		margin: 0 !important;
-    		padding: 0 !important;
-    	}
-
-
+		margin-bottom: 0 !important;
+	}
+	.container-fluid {
+		margin: 0 !important;
+		padding: 0 !important;
+	}
 	</style>
 	<body>
 		<!-- Navbar -->
 		<%- include ../partials/navbar.ejs %>
 		<!-- Header -->
 		<%- include ../partials/header.ejs %>
-		<div class="container-fluid" style="border: dotted;">
+		<div class="container-fluid"">
 			<div class="row">
-				<div class="col-sm-4 bg-warning">
-					search results
+				<div class="col-sm-4 border border-bottom-0 border-top-0 border-left-0 border-dark">
+					<%- include ../partials/searchResults.ejs %>
 				</div>
-				<div class="col-sm-8 bg-danger">
+				<div class="col-sm-8">
 					<div class="row">
-						class details
+						<%- include ../partials/classDetail.ejs %>
 					</div>
 					<div class="row">
-						schedule
 					</div>
 				</div>
 			</div>
