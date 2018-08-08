@@ -1,25 +1,26 @@
-<div class="container align-self-center justify-content-center m-1 border border-danger rounded bg-light mr-4 ml-2">
+<% if (count > 0) { %>
+<div id="detail" class="container align-self-center justify-content-center m-1 border border-danger rounded bg-light mr-4 ml-2">
 	<form class="p-1">
 		<div class="form-group row">
-			<div class="col-1" id="department">Math</div>
-			<div class="col-1" id="number">325</div>
-			<div class="col-1" id="section">1</div>
-			<div class="col-6 offset-3" id="">Linear Algebra for Computer Science Students</div>
+			<div class="col-1" id="department"><%= department[0] %></div>
+			<div class="col-1" id="number"><%= courseNumber[0] %></div>
+			<div class="col-1" id="section">Sec 0<%= courseSection[0] %></div>
+			<div class="col-6 offset-3" id=""><%= courseName[0] %></div>
 		</div>
 		<br>
 		<div class="form-group row">
-			<div class="col-3">Professor</div>
-			<div class="col-2 offset-3">Days of the Week</div>
-			<div class="col-2">Start and End Time</div>
+			<div class="col-3"><%= professor[0] %></div>
+			<div class="col-2 offset-3"><%= days[0] %></div>
+			<div class="col-2"><%= startTime[0] %> - <%= endTime[0] %></div>
 		</div>
 		<br>
 		<div class="form-group row">
-			<div class="col-6">Prerequisites</div>
-			<div class="col-6">Class Description</div>
+			<div class="col-6"><%= prerequisites[0] %></div>
+			<div class="col-6"><%= courseDescription[0] %></div>
 		</div>
 		<br>
 		<div class="form-group row">
-			<div class="col-6">Course Materials</div>
+			<div class="col-6"><%= courseMaterials[0] %></div>
 		</div>
 		<div class="form-group row">
 			<button type="submit" class="btn btn-success offset-10" name="submit" value="Add">Add to Cart</button>
@@ -27,3 +28,4 @@
 		<br>
 	</form>
 </div>
+<% } %>
