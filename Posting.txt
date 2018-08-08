@@ -1,0 +1,65 @@
+DROP TABLE Classes;
+DROP TYPE term;
+DROP TYPE session;
+DROP TYPE department;
+DROP TYPE days;
+DROP TYPE availability;
+
+
+CREATE TYPE term AS ENUM ('Summer', 'Fall');
+CREATE TYPE session AS ENUM ('Academic Regular Session');
+CREATE TYPE department AS ENUM ('Math', 'Physics', 'Biology', 'Computer Science', 'General Education');
+CREATE TYPE days AS ENUM ('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'MoWe', 'TuTh', 'MoWeFr');
+CREATE TYPE availability AS ENUM ('Available', 'Waitlisted', 'Closed');
+
+CREATE TABLE Classes (
+    ClassNumber         int,
+    Term                term,
+    Session             session,
+    Department          department,
+    CourseNumber        int,
+    CourseSection       int,
+    CourseName          varchar(255),
+    Days                days,
+    StartTime           varchar(255),
+    EndTime             varchar(255),
+    Location            varchar(255),
+    Professor           varchar(255),
+    Prerequisites       varchar(1000),
+    CourseMaterials     varchar(1000),
+    CourseDescription   varchar(1000),
+    Availability        availability
+);
+
+INSERT INTO Classes VALUES(2111, 'Fall', 'Academic Regular Session', 'Computer Science', 340, 1, 'Programming Methodology',
+    'TuTh', '11:00AM', '12:15PM', 'Business 125', 'Hui Yang',
+    'CSC 220, CSC 230, MATH 227, with grades of C or better; concurrent enrollment in CSC 412 recommended.',  
+    'Textbooks to be determined.',
+    'Advanced data structures and algorithms for manipulation in C++; emphasis on design and implementation; practical applications; algorithms for sorting, searching, and graphs.', 'Available');
+
+INSERT INTO Classes VALUES(2111, 'Fall', 'Academic Regular Session', 'Computer Science', 340, 2, 'Programming Methodology',
+    'TuTh', '2:00PM', '3:15PM', 'HSS Building 349', 'Hui Yang',
+    'CSC 220, CSC 230, MATH 227, with grades of C or better; concurrent enrollment in CSC 412 recommended.',  
+    'Textbooks to be determined.',
+    'Advanced data structures and algorithms for manipulation in C++; emphasis on design and implementation; practical applications; algorithms for sorting, searching, and graphs.', 'Closed');
+
+INSERT INTO Classes VALUES(2111, 'Fall', 'Academic Regular Session', 'Computer Science', 340, 3, 'Programming Methodology',
+    'MoWeFr', '8:00AM', '8:50AM', 'HSS Building 349', 'Duc Ta',
+    'CSC 220, CSC 230, MATH 227, with grades of C or better; concurrent enrollment in CSC 412 recommended.',  
+    'Textbooks to be determined.',
+    'Advanced data structures and algorithms for manipulation in C++; emphasis on design and implementation; practical applications; algorithms for sorting, searching, and graphs.', 'Closed');
+
+INSERT INTO Classes VALUES(2111, 'Fall', 'Academic Regular Session', 'Computer Science', 340, 4, 'Programming Methodology',
+    'MoWeFr', '9:00AM', '9:50AM', 'HSS Building 285', 'Duc Ta',
+    'CSC 220, CSC 230, MATH 227, with grades of C or better; concurrent enrollment in CSC 412 recommended.',  
+    'Textbooks to be determined.',
+    'Advanced data structures and algorithms for manipulation in C++; emphasis on design and implementation; practical applications; algorithms for sorting, searching, and graphs.', 'Closed');
+
+INSERT INTO Classes VALUES(2111, 'Fall', 'Academic Regular Session', 'Computer Science', 340, 5, 'Programming Methodology',
+    'TuTh', '9:30AM', '10:45AM', 'HSS Building 380', 'Duc Ta',
+    'CSC 220, CSC 230, MATH 227, with grades of C or better; concurrent enrollment in CSC 412 recommended.',  
+    'Textbooks to be determined.',
+    'Advanced data structures and algorithms for manipulation in C++; emphasis on design and implementation; practical applications; algorithms for sorting, searching, and graphs.', 'Waitlisted');
+
+SELECT * FROM Classes;
+

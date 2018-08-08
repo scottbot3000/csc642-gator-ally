@@ -1,51 +1,68 @@
-<div class="header container-fluid row border border-success">
+<div class="header container-fluid row">
 	<div class="container col-3 align-self-center justify-content-center mx-0">
 		<div id="directions" class="rounded border border-primary text-center">
 			Welcome to Gator Ally!<br>
 			To begin, select a Term.
 		</div>
 	</div>
-	<form class="col-9 mx-0 px-0">
+	<form class="col-6 mx-0 px-0" method="get">
 		<br>
 		<div class="form-group row">
-			<button class="rounded-circle border border-danger offset-1">.       1.   </button>
+			<button class="rounded-circle border border-dark offset-1">.       1.   </button>
 			<div class="mx-1"></div>
-			<div class="col-3">
-				<select name="education" class="custom-select" id="education">
-					<option value="" selected>Select a Term</option>
-					<option value="High School" >High School</option>
-					<option value="College" >College</option>
-					<option value="Graduate Studies" >Graduate Studies</option>
-					<option value="Ph.D">Ph.D</option>
+			<div class="col-4">
+				<select name="term" class="custom-select" id="term" onchange="unlockSession();">
+					<option value="" selected disabled>Select a Term</option>
+					<option value="Summer" >Summer 2018</option>
+					<option value="Fall" >Fall 2018</option>
 				</select>
 				<div class="valid-feedback"></div>
 			</div>
 			<div class="mx-4"></div>
-			<button class="rounded-circle border border-danger">.       2.   </button>
+			<button class="rounded-circle border border-dark">.       2.   </button>
 			<div class="mx-1"></div>
-			<div class="col-3">
-				<select name="education" class="custom-select" id="education">
-					<option value="" selected>Select a Session</option>
-					<option value="High School" >High School</option>
-					<option value="College" >College</option>
-					<option value="Graduate Studies" >Graduate Studies</option>
-					<option value="Ph.D">Ph.D</option>
+			<div class="col-4">
+				<select name="session" class="custom-select" id="session" onchange="unlockSearch();" disabled>
+					<option value="All" selected disabled>Select a Session</option>
+					<option value="Academic Regular Session">Academic Regular Session</option>
 				</select>
 				<div class="valid-feedback"></div>
 			</div>
 		</div>
 		<div class="form-group row">
-			<button class="rounded-circle border border-danger offset-1">.       3.   </button>
+			<button class="rounded-circle border border-dark offset-1">.       3.   </button>
 			<div class="mx-1"></div>
-			<div class="col-2 pr-0">
-				<select name="education" class="custom-select" id="education">
-					<option value="" selected>All Majors</option>
-					<option value="High School" >High School</option>
-					<option value="College" >College</option>
-					<option value="Graduate Studies" >Graduate Studies</option>
-					<option value="Ph.D">Ph.D</option>
+			<div class="col-3 pr-0">
+				<select name="department" class="custom-select" id="department" disabled>
+					<option value="All" selected>All Departments</option>
+					<option value="General Education" >General Education</option>
+					<option value="Biology" >Biology</option>
+					<option value="Computer Science" >Computer Science</option>
+					<option value="Math">Math</option>
 				</select>
 			</div>
-			<input name="address" type="text" class="form-control col-5" id="address" placeholder="Search for classes" value="" required>
-		</form>
-	</div>
+			<input name="search" type="text" class="form-control col-6" id="search" placeholder="Search for classes" value="" disabled>
+			<input type="submit" name="submit" value="submit" style="display: none"/>
+		</div>
+	</form>
+</div>
+<script type="text/javascript">
+	function unlockSession() {
+		if (typeof unlockSession.unlocked == 'undefined') {
+			console.log("I'm unlocking Session")
+			unlockSession.unlocked = true;
+			document.getElementById('session').disabled = false;
+			document.getElementById('directions').innerHTML = 'Next, select a session.'
+
+		}
+	}
+	function unlockSearch() {
+		if (typeof unlockSearch.unlocked == 'undefined') {
+			console.log("I'm unlocking Search")
+			unlockSearch.unlocked = true;
+			document.getElementById('department').disabled = false;
+			document.getElementById('search').disabled = false;
+			document.getElementById('directions').innerHTML = `Great!<br>You're ready to search for classes.<br>You can filter your search by Major Department.`
+		}
+	}
+</script>

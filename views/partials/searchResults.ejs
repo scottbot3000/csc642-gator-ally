@@ -1,0 +1,51 @@
+<div class="container align-self-center justify-content-center m-1 border border-danger rounded bg-light text-center">
+		<p><%= count %> of <%= count %> results returned</p>
+</div>
+<% for (var i = 0; i < count; i++) { %>
+<div class="container align-self-center justify-content-center m-1 border border-danger rounded bg-light" onclick="showDetail<%= i %>()">
+	<div class="row">
+		<hr/><p><%= classNumber[i] %></p><hr/>
+		<p>Sec 0<%= courseSection[i] %></p><hr/>
+		<p><%= days[i] %></p><hr/>
+		<p><%= professor[i] %></p><hr/>
+	</div>
+	<div class="row align-self-center justify-content-center">
+		<p>Click for more details</p>
+	</div>
+</div>
+<% } %>
+<script type="text/javascript">
+	
+	<% for (var i = 0; i < count; i++) { %>
+	function showDetail<%= i %>() {
+		console.log(<%= i %>)
+		document.getElementById('detail').innerHTML = `<form class="p-1">
+		<div class="form-group row">
+			<div class="col-1" id="department"><%= department[i] %></div>
+			<div class="col-1" id="number"><%= courseNumber[i] %></div>
+			<div class="col-1" id="section">Sec 0<%= courseSection[i] %></div>
+			<div class="col-6 offset-3" id=""><%= courseName[i] %></div>
+		</div>
+		<br>
+		<div class="form-group row">
+			<div class="col-3"><%= professor[i] %></div>
+			<div class="col-2 offset-3"><%= days[i] %></div>
+			<div class="col-2"><%= startTime[i] %> - <%= endTime[i] %></div>
+		</div>
+		<br>
+		<div class="form-group row">
+			<div class="col-6"><%= prerequisites[i] %></div>
+			<div class="col-6"><%= courseDescription[i] %></div>
+		</div>
+		<br>
+		<div class="form-group row">
+			<div class="col-6"><%= courseMaterials[i] %></div>
+		</div>
+		<div class="form-group row">
+			<button type="submit" class="btn btn-success offset-10" name="submit" value="Add">Add to Cart</button>
+		</div>
+		<br>
+	</form>`
+	}
+	<% } %>
+</script>
